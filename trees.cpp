@@ -1,8 +1,22 @@
+/* GENERAL DEFINITIONS
+   
+   Binary Tree: A tree where every node has at most two branches.
+   Binary Search Tree: A Binary Tree where all left sub-trees only have nodes with key values less than
+                       the parent node and all right sub-trees only have nodes with key values greater
+		       than the parent.
 
+
+ */
+struct TreeNode
+{
+  int value;
+  TreeNode* left;
+  TreeNode* right;
+};
 
 /* PURPOSE: Find the count of unique binary search trees given n nodes. 
    SPACE COMPLEXITY: O(n)    
-   RUNTIME: O(n^2)
+   TIME COMPLEXITY: O(n^2)
    TYPE: Dynamic Programming
 
    NOTES: This solution takes advantage of the fact that solutions can be
@@ -13,7 +27,7 @@
    be used as the base case to solve the answer for node count 2. 
  */
 int
-number_of_unqiue_binary_trees(int node_count)
+number_of_unqiue_binary_search_trees(int node_count)
 {
   
   unsigned int* unique_tree_count = new unsigned int[node_count + 1];
@@ -34,4 +48,58 @@ number_of_unqiue_binary_trees(int node_count)
   unsigned int result = unique_tree_count[node_count];
   delete[] unique_tree_count;
   return result;
+}
+
+/* PURPOSE: Find if two Binary Trees are structurally identical and contain the same node values.
+   SPACE COMPLEXITY: O(n)  // NOTE: A balanced tree could have O(log(n))
+   TIME COMPLEXITY: O(n)
+   TYPE: Recursion
+
+   NOTES: Order of if statement checks is important here to avoid access violations.
+*/
+bool
+is_same_binary_tree_recursive(TreeNode* tree_a, TreeNode* tree_b)
+{
+  
+  if ((tree_a == 0) && (tree_b == 0))
+  {
+    return true;
+  }
+  if ((tree_a == 0) || (tree_b == 0))
+  {
+    return false;
+  }
+  if (tree_a->value != tree_b->value)
+  {
+    return false;
+  }
+  return (is_same_binary_tree_recursive(tree_a->right, tree_b->right)) &&
+         (is_same_binary_tree_recursive(tree_a->left, tree_b->left));
+}
+
+/* PURPOSE: Find if two Binary Trees are structurally identical and contain the same node values.
+   SPACE COMPLEXITY: O(n)  // NOTE: A balanced tree could have O(log(n))
+   TIME COMPLEXITY: O(n)
+   TYPE: Iterative
+
+   NOTES: Order of if statement checks is important here to avoid access violations.
+ */
+
+bool
+is_same_binary_tree(TreeNode* tree_a, TreeNode* tree_b)
+{
+  if ((tree_a == 0) && (tree_b == 0))
+  {
+    return true;
+  }
+  if ((tree_a == 0) || (tree_b == 0))
+  {
+    return false;
+  }
+  if (tree_a->value != tree_b->value)
+  {
+    return false;
+  }
+
+  return false;
 }
