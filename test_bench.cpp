@@ -1,9 +1,12 @@
 #include <stdio.h>
 
+#include "math.cpp"
 #include "trees.cpp"
 
 int main()
 {
+  int fib_num = nth_fibonacci_recursive(9);
+  
   TreeNode Test;
   TreeNode Cow;
   TreeNode Cow2;

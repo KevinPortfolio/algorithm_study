@@ -4,8 +4,6 @@
    Binary Search Tree: A Binary Tree where all left sub-trees only have nodes with key values less than
                        the parent node and all right sub-trees only have nodes with key values greater
 		       than the parent.
-
-
  */
 struct TreeNode
 {
@@ -62,17 +60,12 @@ is_same_binary_tree_recursive(TreeNode* tree_a, TreeNode* tree_b)
 {
   
   if ((tree_a == 0) && (tree_b == 0))
-  {
     return true;
-  }
   if ((tree_a == 0) || (tree_b == 0))
-  {
     return false;
-  }
   if (tree_a->value != tree_b->value)
-  {
     return false;
-  }
+  
   return (is_same_binary_tree_recursive(tree_a->right, tree_b->right)) &&
          (is_same_binary_tree_recursive(tree_a->left, tree_b->left));
 }
@@ -89,17 +82,11 @@ bool
 is_same_binary_tree(TreeNode* tree_a, TreeNode* tree_b)
 {
   if ((tree_a == 0) && (tree_b == 0))
-  {
     return true;
-  }
   if ((tree_a == 0) || (tree_b == 0))
-  {
     return false;
-  }
   if (tree_a->value != tree_b->value)
-  {
     return false;
-  }
 
   return false;
 }
