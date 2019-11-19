@@ -5,10 +5,25 @@
 #include "strings.cpp"
 #include "trees.cpp"
 
+/*
+  TYPES
+  - permutations
+  - math to target (sum 3 = 0, sum 2 = target)
+  - substrings
+  - water buckets
+  - merge lists
+  - rotate matrix
+
+
+ */
+
+
 int main()
 {
   int fib_num = nth_fibonacci_recursive(9);
 
+  int perm = permutations(3);
+  
   char* test_pal = longest_palindrome("aaaa");
   
   char test_label[7] = "Mooser";

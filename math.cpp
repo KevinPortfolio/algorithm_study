@@ -43,6 +43,31 @@ nth_fibonacci_recursive(int n)
   return nth_fibonacci_recursive(n - 1) + nth_fibonacci_recursive(n - 2);
 }
 
+
+int permutations(int array_count)
+{  
+  int result = 1;
+  for (int i = 0; i < array_count; i++)
+    result *= (array_count--);
+  return result;
+}
+
+/**
+ * Return an array of arrays of size *returnSize.
+ * The sizes of the arrays are returned as *returnColumnSizes array.
+ * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
+ */
+int** permute(int* array, int array_size, int* returnSize, int** returnColumnSizes)
+{
+  int result_size = permutations(array_size);
+  //int** result = (int**)malloc(result_size);
+
+  
+
+  return 0;
+}
+
+
 /* PURPOSE: Find the median of two sorted arrays. 
    SPACE COMPLEXITY: O(1)    
    TIME COMPLEXITY: O(n)
@@ -74,13 +99,9 @@ median_of_two_sorted_arrays(int* array_a, int array_a_size, int* array_b, int ar
 	result = array_b[b_itr++];
     }
     else if ((a_itr < array_a_size)) // NOTE: If array a has more but b does not
-    {
       result = array_a[a_itr++];
-    }
     else                             // NOTE: If array b has more but a does not
-    {
       result = array_b[b_itr++];
-    }
   }
   
   if (even)

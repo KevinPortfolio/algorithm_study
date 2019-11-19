@@ -1,4 +1,23 @@
 
+bool
+str_compare_null_term(char* str_a, char* str_b)
+{  
+  if (!str_a && !str_b)
+    return 1;
+  if (!str_a || !str_b)
+    return 0;
+  
+  while (*str_a && *str_b)
+  {
+    if (*(str_a++) != *(str_b++))
+      return 0;
+  }
+  
+  if (!(*str_a) && !(*str_b))
+    return 1;
+  return 0;
+}
+
 int
 helper_palindrome_expand(char* start_left, char* start_right, char* start_bound)
 {
@@ -156,23 +175,4 @@ longest_palindrome(char *str)
   {
     return 0;
   }
-}
-
-bool
-str_compare_null_term(char* str_a, char* str_b)
-{  
-  if (!str_a && !str_b)
-    return 1;
-  if (!str_a || !str_b)
-    return 0;
-  
-  while (*str_a && *str_b)
-  {
-    if (*(str_a++) != *(str_b++))
-      return 0;
-  }
-  
-  if (!(*str_a) && !(*str_b))
-    return 1;
-  return 0;
 }
